@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Title from "./Title";
 import Image from "./Image";
 import Date from "./Date";
+import Explanation from "./Explanation";
 import axios from "axios";
 
 function Pictures() {
@@ -30,6 +31,9 @@ function Pictures() {
         />
         <Date 
             date = {picture.date}
+        />
+        <Explanation
+            explanation = {picture.explanation}
         />
     </div>
     )
