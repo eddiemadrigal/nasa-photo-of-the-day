@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import Picture from "./Picture";
+import Title from "./Title";
+import Image from "./Image";
 import Date from "./Date";
 import axios from "axios";
 
@@ -21,8 +22,11 @@ function Pictures() {
 
     return (
     <div>
-        <Picture 
+        <Title 
             title = {picture.title}
+        />
+        <Image 
+            url = {picture.url}
         />
         <Date 
             date = {picture.date}
