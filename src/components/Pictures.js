@@ -1,9 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {Container, Row, Col} from "reactstrap";
-import Title from "./Title";
-import Image from "./Image";
-import Date from "./Date";
-import Explanation from "./Explanation";
+import {Container, Row, Col, Card, CardImg, CardBody, CardTitle, CardText} from "reactstrap";
 import axios from "axios";
 
 
@@ -12,6 +8,7 @@ const Pictures = () => {
     const [picture, setPicture] = useState([]);
     const [picture1, setPicture1] = useState([]);
     const [picture2, setPicture2] = useState([]);
+    const [picture3, setPicture3] = useState([]);
     
     const getNewImage = () => {
         let year = [2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019];
@@ -53,21 +50,24 @@ const Pictures = () => {
         .then(response => {
             setPicture1(response.data);
         })
-        .catch(err => {
-            console.log(err);
-        })
-
-    }, []);
-
-    useEffect(() => {
-        
+        .catch(err1 => {
+            console.log(err1);
+        });
         axios
         .get(getNewImage())
         .then(response => {
             setPicture2(response.data);
         })
-        .catch(err => {
-            console.log(err);
+        .catch(err2 => {
+            console.log(err2);
+        });
+        axios
+        .get(getNewImage())
+        .then(response => {
+            setPicture3(response.data);
+        })
+        .catch(err3 => {
+            console.log(err3);
         })
 
     }, []);
@@ -76,52 +76,57 @@ const Pictures = () => {
     <Container>
         <Row>
             <Col>
-                <Title 
-                    title = {picture.title}
-                />
-                <Image 
-                    url = {picture.url}
-                />
-                <Date 
-                    date = {picture.date}
-                />
-                <Explanation
-                    explanation = {picture.explanation}
-                />
+                <Card>
+                    <CardImg top width="100%" src={picture.url} alt="Card image cap" />
+                    <CardBody>
+                        <CardTitle>{picture.title}</CardTitle>
+                        <CardText>{picture.explanation}</CardText>
+                        <CardText>
+                            <small className="text-muted">{picture.date}</small>
+                        </CardText>
+                    </CardBody>
+                </Card>
             </Col>
         </Row>
         <h2>Random Pics from the Past ...</h2>
         <Row>
-            <Col sm="6">
-                <Title 
-                    title = {picture1.title}
-                />
-                <Image 
-                    url = {picture1.url}
-                />
-                <Date 
-                    date = {picture1.date}
-                />
-                <Explanation
-                    explanation = {picture1.explanation}
-                />
+            <Col sm="4">
+                <Card>
+                    <CardImg top width="100%" src={picture1.url} alt="Card image cap" />
+                    <CardBody>
+                        <CardTitle>{picture1.title}</CardTitle>
+                        <CardText>{picture1.explanation}</CardText>
+                        <CardText>
+                            <small className="text-muted">{picture1.date}</small>
+                        </CardText>
+                    </CardBody>
+                </Card>
             </Col>
-            <Col sm="6">
-                <Title 
-                    title = {picture2.title}
-                />
-                <Image 
-                    url = {picture2.url}
-                />
-                <Date 
-                    date = {picture2.date}
-                />
-                <Explanation
-                    explanation = {picture2.explanation}
-                />
+            <Col sm="4">
+                <Card>
+                    <CardImg top width="100%" src={picture2.url} alt="Card image cap" />
+                    <CardBody>
+                        <CardTitle>{picture2.title}</CardTitle>
+                        <CardText>{picture2.explanation}</CardText>
+                        <CardText>
+                            <small className="text-muted">{picture2.date}</small>
+                        </CardText>
+                    </CardBody>
+                </Card>
+            </Col>
+            <Col sm="4">
+                <Card>
+                    <CardImg top width="100%" src={picture3.url} alt="Card image cap" />
+                    <CardBody>
+                        <CardTitle>{picture3.title}</CardTitle>
+                        <CardText>{picture3.explanation}</CardText>
+                        <CardText>
+                            <small className="text-muted">{picture3.date}</small>
+                        </CardText>
+                    </CardBody>
+                </Card>
             </Col>
         </Row>
-
     </Container>
     )
 }
