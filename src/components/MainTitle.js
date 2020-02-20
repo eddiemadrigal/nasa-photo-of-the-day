@@ -1,8 +1,14 @@
-import React from "react"
+import React from "react";
+import styled from "styled-components";
+
+const H1 = styled.h1 `
+    padding-top: 30px;
+`;
+
 
 function MainTitle(props) {
     return (
-        <h1>NASA's Picture of the Day</h1>
+        <H1>NASA's Picture of the Day</H1>
     )
 }
 

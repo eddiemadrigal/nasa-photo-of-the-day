@@ -1,7 +1,16 @@
 import React, { useState, useEffect } from "react";
+import styled from "styled-components";
 import {Container, Row, Col, Card, CardImg, CardBody, CardTitle, CardText} from "reactstrap";
+import './Pictures.css';
 import axios from "axios";
 
+const H2 = styled.h2 `
+    margin: 30px auto;
+`;
+
+const CardTitleNew = styled.h4 `
+    font-weight: bold;
+`
 
 const Pictures = () => {
 
@@ -22,7 +31,7 @@ const Pictures = () => {
         let newDate = genY + "-" + genM + "-" + genD;
         let newUrl = `https://api.nasa.gov/planetary/apod?date=${newDate}&api_key=f5UkdBJMB4aQF0BXK9OzYicb3nA56qe9LKnulCxG`;
 
-        let d = new window.Date();
+        // let d = new window.Date();
         // console.log("year:", d.getFullYear());
         
         // console.log("Today's date: ", new window.Date());
@@ -79,7 +88,7 @@ const Pictures = () => {
                 <Card>
                     <CardImg top width="100%" src={picture.url} alt="Card image cap" />
                     <CardBody>
-                        <CardTitle>{picture.title}</CardTitle>
+                        <CardTitleNew>{picture.title}</CardTitleNew>
                         <CardText>{picture.explanation}</CardText>
                         <CardText>
                             <small className="text-muted">{picture.date}</small>
@@ -88,13 +97,13 @@ const Pictures = () => {
                 </Card>
             </Col>
         </Row>
-        <h2>Random Pics from the Past ...</h2>
+        <H2>Random Pics from the Past ...</H2>
         <Row>
             <Col sm="4">
                 <Card>
                     <CardImg top width="100%" src={picture1.url} alt="Card image cap" />
                     <CardBody>
-                        <CardTitle>{picture1.title}</CardTitle>
+                        <CardTitleNew>{picture1.title}</CardTitleNew>
                         <CardText>{picture1.explanation}</CardText>
                         <CardText>
                             <small className="text-muted">{picture1.date}</small>
@@ -106,7 +115,7 @@ const Pictures = () => {
                 <Card>
                     <CardImg top width="100%" src={picture2.url} alt="Card image cap" />
                     <CardBody>
-                        <CardTitle>{picture2.title}</CardTitle>
+                        <CardTitleNew>{picture2.title}</CardTitleNew>
                         <CardText>{picture2.explanation}</CardText>
                         <CardText>
                             <small className="text-muted">{picture2.date}</small>
@@ -118,7 +127,7 @@ const Pictures = () => {
                 <Card>
                     <CardImg top width="100%" src={picture3.url} alt="Card image cap" />
                     <CardBody>
-                        <CardTitle>{picture3.title}</CardTitle>
+                        <CardTitleNew>{picture3.title}</CardTitleNew>
                         <CardText>{picture3.explanation}</CardText>
                         <CardText>
                             <small className="text-muted">{picture3.date}</small>
