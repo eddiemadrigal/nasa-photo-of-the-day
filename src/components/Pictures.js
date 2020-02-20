@@ -3,10 +3,11 @@ import Title from "./Title";
 import Image from "./Image";
 import Date from "./Date";
 import Explanation from "./Explanation";
+import ImageGenerator from "./ImageGenerator";
 import axios from "axios";
 
 function Pictures() {
-    
+
     const [picture, setPicture] = useState([]);
 
     useEffect(() => {
@@ -25,6 +26,9 @@ function Pictures() {
     <div>
         <Title 
             title = {picture.title}
+        />
+        <ImageGenerator 
+
         />
         <Image 
             url = {picture.url}
