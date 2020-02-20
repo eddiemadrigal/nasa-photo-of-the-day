@@ -6,7 +6,7 @@ const ImageGenerator = ({getDate}) => {
 
     return (
         <div style={{ marginBottom: 20}}>
-            <button onClick={()=> getDate()}>Random Image Generator</button>
+            <button onClick={getDate}>Random Image Generator</button>
         </div>
     )
 
