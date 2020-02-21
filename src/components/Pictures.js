@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import {Container, Row, Col, Card, CardImg, CardBody, CardTitle, CardText} from "reactstrap";
+import {Container, Row, Col, Card, CardImg, CardBody, Button, CardText} from "reactstrap";
 import './Pictures.css';
 import axios from "axios";
 
@@ -35,7 +35,6 @@ const Pictures = () => {
         // console.log("year:", d.getFullYear());
         
         // console.log("Today's date: ", new window.Date());
-
         return newUrl;
     }
 
@@ -59,24 +58,20 @@ const Pictures = () => {
         .then(response => {
             setPicture1(response.data);
         })
-        .catch(err1 => {
-            console.log(err1);
-        });
+
         axios
         .get(getNewImage())
         .then(response => {
             setPicture2(response.data);
         })
-        .catch(err2 => {
-            console.log(err2);
-        });
+
         axios
         .get(getNewImage())
         .then(response => {
             setPicture3(response.data);
         })
-        .catch(err3 => {
-            console.log(err3);
+        .catch(err => {
+            console.log(err);
         })
 
     }, []);
